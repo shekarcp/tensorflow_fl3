@@ -12,7 +12,10 @@ def mnist_iid(dataset, num_users):
     :param dataset:
     :param num_users:
     :return: dict of image index
+    :achu: for IID, the data is randomly partitioned into 200 equal shares, 
+    :here shares are nothing but num_users
     """
+    print("in function mnist_iid")
     num_items = int(len(dataset)/num_users)
     dict_users, all_idxs = {}, [i for i in range(len(dataset))]
     for i in range(num_users):
@@ -28,7 +31,9 @@ def mnist_noniid(dataset, num_users):
     :param num_users:
     :return:
     """
-    num_shards, num_imgs = 200, 300
+    print("chandra: in function mnist_noniid")
+    # num_shards, num_imgs = 200, 300
+    num_shards, num_imgs = 400, 150
     idx_shard = [i for i in range(num_shards)]
     dict_users = {i: np.array([], dtype='int64') for i in range(num_users)}
     idxs = np.arange(num_shards*num_imgs)
@@ -41,6 +46,7 @@ def mnist_noniid(dataset, num_users):
 
     # divide and assign
     for i in range(num_users):
+        # rand_set = set(np.random.choice(idx_shard, 2, replace=False))
         rand_set = set(np.random.choice(idx_shard, 2, replace=False))
         idx_shard = list(set(idx_shard) - rand_set)
         for rand in rand_set:

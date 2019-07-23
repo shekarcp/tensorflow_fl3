@@ -7,8 +7,6 @@ from torch import nn, autograd
 from torch.utils.data import DataLoader, Dataset
 import numpy as np
 import random
-from sklearn import metrics
-
 
 class DatasetSplit(Dataset):
     def __init__(self, dataset, idxs):
