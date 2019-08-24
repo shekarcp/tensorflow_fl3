@@ -101,7 +101,6 @@ if __name__ == '__main__':
     print("Testing accuracy: {:.2f}".format(acc_test))
     
 class GlobalModel(object):
-    """docstring for GlobalModel"""
     def __init__(self)
         self.model = self.build_model()
         self.current_weights = self.model.get_weights()
