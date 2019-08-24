@@ -99,10 +99,10 @@ if __name__ == '__main__':
     acc_test, loss_test = test_img(net_glob, dataset_test, args)
     print("Training accuracy: {:.2f}".format(acc_train))
     print("Testing accuracy: {:.2f}".format(acc_test))
-
-    class GlobalModel(object):
-    """docstring for GlobalModel"""
-    def __init__(self):
+    
+class GlobalModel(object):
+"""docstring for GlobalModel"""
+    def __init__(self)
         self.model = self.build_model()
         self.current_weights = self.model.get_weights()
         # for convergence check
